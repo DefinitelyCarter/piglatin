@@ -12,10 +12,18 @@ const (
 
 // Translate translates an English word into Pig latin.
 func Translate(in string) string {
-	first := in[0:1]
-	if strings.Contains(firstLetterExceptions, first) {
-		return in + firstLetterExceptionSuffix
-	} else {
-		return in[1:] + first + pigLatinSuffix
+	var latinWords []string
+	englishWords := strings.Split(in, " ")
+
+	for _, word := range englishWords {
+		first := word[0:1]
+		var latinWord string
+		if strings.Contains(firstLetterExceptions, first) {
+			latinWord = word + firstLetterExceptionSuffix
+		} else {
+			latinWord = word[1:] + first + pigLatinSuffix
+		}
+		latinWords = append(latinWords, latinWord)
 	}
+	return strings.Join(latinWords, " ")
 }
