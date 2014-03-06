@@ -10,7 +10,7 @@ const (
 	firstLetterExceptionSuffix string = "d" + pigLatinSuffix
 )
 
-// Translate translates an English word into Pig latin.
+// Translate translates an English sentence into Pig latin.
 func Translate(in string) string {
 	var latinWords []string
 	englishWords := strings.Split(in, " ")
